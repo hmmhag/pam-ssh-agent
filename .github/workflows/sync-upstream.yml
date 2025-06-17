@@ -29,10 +29,23 @@ jobs:
       - name: Fetch upstream
         run: git fetch upstream
 
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet HEAD upstream/main; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected"
+          fi
+
       - name: Rebase main
+        if: steps.changes.outputs.has_changes == 'true'
         run: git rebase upstream/main
 
       - name: Push changes
+        if: steps.changes.outputs.has_changes == 'true'
         run: git push origin main --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
