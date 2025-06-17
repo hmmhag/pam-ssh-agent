@@ -20,7 +20,7 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Add upstream
-        run: git remote add upstream https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ORIGINAL_USER/ORIGINAL_REPO.git
+        run: git remote add upstream https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nresare/pam-ssh-agent.git
 
       - name: Fetch upstream
         run: git fetch upstream
