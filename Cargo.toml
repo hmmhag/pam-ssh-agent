@@ -1,6 +1,6 @@
 [package]
 name = "pam-ssh-agent"
-version = "0.9.3"
+version = "0.9.4"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/nresare/pam-ssh-agent"
@@ -32,6 +32,7 @@ openssl = { version = "0.10.73", optional = true }
 p256 = { version = "0.13.2", optional = true }
 p384 = { version = "0.13.1", optional = true }
 p521 = { version = "0.13.3", optional = true }
+wait-timeout = "0.2.1"
 
 [dev-dependencies]
 base64 = "0.22.1"
